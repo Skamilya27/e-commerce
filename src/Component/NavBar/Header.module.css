@@ -1,0 +1,14 @@
+.cardbody {
+    background-color: grey;
+    text-align: center;
+    font-size: 80px;
+    font-weight: bold;
+
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    padding: auto;
+    margin-top: 57px;
+}
+
+.cardbody span {
+    color: white;
+}
