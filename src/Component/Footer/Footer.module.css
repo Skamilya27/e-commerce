@@ -1,0 +1,21 @@
+.footer1 {
+    background-color: rgb(116, 196, 241);
+  /* margin-top:30px; */
+  
+  }
+  .footer1 h1 {
+      color:aliceblue;
+      font-family:'Times New Roman', Times, serif;
+      display:inline-block;
+  }
+  
+  .img {
+       display: flex;
+       justify-content: end;
+  }
+  .img img{
+      margin-left:70px;
+  }
+  .footer{
+    font-family: algerian;
+  }
