@@ -1,7 +1,8 @@
 import { Button, Container, Navbar } from "react-bootstrap";
 import classes from "./NavBar.module.css";
+import CartButton from "./CartButton";
 
-const NavBar = () => {
+const NavBar = (props) => {
   return (
     <div>
       <Navbar bg="dark" expand="lg" variant="dark" fixed="top">
@@ -11,15 +12,8 @@ const NavBar = () => {
             <Navbar.Brand>STORE</Navbar.Brand>
             <Navbar.Brand>ABOUT</Navbar.Brand>
           </div>
-          <Button
-            variant="dark"
-            style={{
-              border: "1px solid skyblue",
-            }}
-            type="click"
-          >
-            Cart
-          </Button>
+          
+          <CartButton onButtonpass = {props.onOpenButton}/>
         </Container>
       </Navbar>
     </div>

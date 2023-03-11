@@ -14,10 +14,10 @@ const  ModalOverlay =(props)=>{
        
 }
 
- const Modal =(porps)=>{
+ const Modal =(props)=>{
     return (
         <Fragment>
-            {ReactDOM.createPortal(<ModalOverlay>{porps.children}</ModalOverlay> ,document.getElementById('modal'))}
+            {ReactDOM.createPortal(<ModalOverlay>{props.children}</ModalOverlay> ,document.getElementById('modal'))}
         </Fragment>
     )
  }

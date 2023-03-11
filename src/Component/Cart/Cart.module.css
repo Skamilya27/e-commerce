@@ -1,0 +1,25 @@
+.card{
+    width: 15rem ;
+    height:118px;
+    text-align: center;
+    display: inline-block;
+  }  
+  
+  .title {
+    text-align: center;
+  
+    
+  }
+   
+  .price {
+    margin-left: 60px;
+  }
+  .quantity {
+    margin-left: 70px;
+    display: inline-block;
+  }
+  
+  .removeButton {
+    margin-left:23px;
+  }
+  
