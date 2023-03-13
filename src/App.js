@@ -1,40 +1,38 @@
-import "./App.css";
-import Items from "./Component/Body/Items";
-import Footer from "./Component/Footer/Footer";
-import Header from "./Component/NavBar/Header";
-import NavBar from "./Component/NavBar/NavBar";
-
-const productsArr = [
-  {
-    title: 'Colors',
-    price: 100,
-    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
-  },
-  {
-    title: 'Black and white Colors',
-    price: 50,
-    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
-  },
-  {
-    title: 'Yellow and Black Colors',
-    price: 70,
-    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
-  },
-  {
-    title: 'Blue Color',
-    price: 100,
-    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png',
-  }
-]
-
+//import './App.css';
+import { useState } from 'react';
+import { Container } from 'react-bootstrap';
+import { Route, Routes } from 'react-router-dom';
+import Header from './Componet/Layout/Header';
+import About from './Pages/About';
+import Home from './Pages/Home';
+import Store from './Pages/Store';
+import Cart from './Componet/Cart/Cart';
+import Footer from './Componet/Layout/Footer';
 function App() {
+  const [showCart,setShowCart] = useState(false)
+  const onShowCartHandler = () =>{
+      setShowCart(true);
+  };
+
+  const onHideCartHandler = () => {
+    setShowCart(false);
+  }
   return (
-    <>
-      <NavBar />
-      <Header />
-      <Items Item={productsArr} />
+    // <Container>
+    //   <Header></Header>
+    // </Container>
+    <div>
+      {showCart && <Cart show={showCart} onClose={onHideCartHandler}></Cart>}
+      <Header onOpen={onShowCartHandler}></Header>
+      <Container>
+        <Routes>
+          <Route path='/home' element={<Home />} />
+          <Route path='/' element={<Store />} />
+          <Route path='/about' element={<About />} />
+        </Routes>
+      </Container>
       <Footer />
-    </>
+    </div>
   );
 }
 
