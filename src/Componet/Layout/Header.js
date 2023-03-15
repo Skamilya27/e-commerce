@@ -1,20 +1,20 @@
 import { useContext } from "react";
-import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import { Button, Container, Nav, Navbar } from "react-bootstrap"
 import { NavLink } from "react-router-dom";
 import CartContext from "../../store/cart-context";
 //import classes from './Header.module.css';
 const divStyle = {
-  background: "#777",
-  padding: "40px",
+  background: '#777',
+  padding:'40px'
 };
 const titleStyle = {
-  fontFamily: "Times New Roman",
-  fontSize: "100px",
-  color: "white",
+  fontFamily: 'Times New Roman',
+  fontSize:'100px',
+  color: 'white'
 };
 const fontSize = {
-  fontFamily: "Times New Roman",
-  fontSize: "20px",
+  fontFamily: 'Times New Roman',
+  fontSize:'20px',
 };
 
 const Header = (props) => {
@@ -23,28 +23,22 @@ const Header = (props) => {
   const numberOfCartItems = cartCntx.items.reduce((curNumber, item) => {
     return curNumber + item.amount;
   }, 0);
+  console.log(cartCntx.items.amount);
   return (
     <>
       <Navbar sticky="top" bg="dark" variant="dark">
         <Container fluid style={fontSize}>
-          <Navbar.Brand href="/home">MUSIC</Navbar.Brand>
+          <Navbar.Brand href="/home">The Generics</Navbar.Brand>
           <Nav className="justify-content-center flex-grow-1 pe-3">
-            <Nav.Link className="me-5" to="/home" as={NavLink}>
-              Home
-            </Nav.Link>
-            <Nav.Link className="me-5" to="/" as={NavLink}>
-              Store
-            </Nav.Link>
-            <Nav.Link className="me-5" to="/about" as={NavLink}>
-              About
-            </Nav.Link>
+            <Nav.Link className="me-3" to="/home" as={NavLink}>Home</Nav.Link>
+            <Nav.Link className="me-3" to="/" as={NavLink}>Store</Nav.Link>
+            <Nav.Link className="me-3" to="/about" as={NavLink}>About</Nav.Link>
+            <Nav.Link className="me-3" to="/ContactUs" as={NavLink}>Contact Us</Nav.Link>
           </Nav>
-          <Button
-            onClick={props.onOpen}
+          <Button onClick={props.onOpen}
             style={{ width: "3rem", height: "3rem", position: "relative" }}
             variant="outline-primary"
-            className="rounded-circle"
-          >
+            className="rounded-circle">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 576 512"
@@ -71,10 +65,10 @@ const Header = (props) => {
         </Container>
       </Navbar>
       <Container fluid className="text-center" style={divStyle}>
-        <h1 style={titleStyle}>The Generics</h1>
+        <h1 style={titleStyle}>The Genrics</h1>
       </Container>
     </>
   );
-};
+}
 
 export default Header;
