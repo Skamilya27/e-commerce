@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import { Button, Container, Nav, Navbar } from "react-bootstrap"
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import CartContext from "../../store/cart-context";
+import LoginContext from "../../store/LoginContext";
 //import classes from './Header.module.css';
 const divStyle = {
   background: '#777',
@@ -19,11 +20,19 @@ const fontSize = {
 
 const Header = (props) => {
   const cartCntx = useContext(CartContext);
+  const authCtx = useContext(LoginContext);
+  const history = useHistory();
 
   const numberOfCartItems = cartCntx.items.reduce((curNumber, item) => {
     return curNumber + item.amount;
   }, 0);
   console.log(cartCntx.items.amount);
+
+  const logoutHandler = () => {
+    authCtx.logout();
+    history.replace('/');
+  }
+
   return (
     <>
       <Navbar sticky="top" bg="dark" variant="dark">
@@ -34,6 +43,9 @@ const Header = (props) => {
             <Nav.Link className="me-3" to="/" as={NavLink}>Store</Nav.Link>
             <Nav.Link className="me-3" to="/about" as={NavLink}>About</Nav.Link>
             <Nav.Link className="me-3" to="/ContactUs" as={NavLink}>Contact Us</Nav.Link>
+            <Nav.Link className="me-3" to="/login" as={NavLink} >Login</Nav.Link>
+
+            <button onClick= {logoutHandler}> Logout </button>
           </Nav>
           <Button onClick={props.onOpen}
             style={{ width: "3rem", height: "3rem", position: "relative" }}

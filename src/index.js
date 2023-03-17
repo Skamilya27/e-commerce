@@ -7,14 +7,17 @@ import "../node_modules/react-bootstrap/dist/react-bootstrap";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter } from "react-router-dom";
 import CartProvider from "./store/cart-provider";
+import { LoginContextProvider } from "./store/LoginContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
+  <LoginContextProvider>
   <CartProvider>
     <BrowserRouter>
       <App />
     </BrowserRouter>
   </CartProvider>
+  </LoginContextProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
